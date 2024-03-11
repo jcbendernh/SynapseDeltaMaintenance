@@ -36,7 +36,7 @@ There are a few verification steps to review and this also give you a better und
 For the <b>ShowTables</b> notebook activity, under Settings, verify that <b>Delta Table Maintenance-1</b> is listed and select your Spark Pool for automated jobs.
 ![picture alt](/img/5.png)
 
-Under your Lookup activity, verify your wildcard file path.  This is where the spark Tables csv listing was written o in the previous step.  This activity will read that csv and execute a ForEach activity for each delta table listed.
+Under your Lookup activity, verify your wildcard file path.  This is where the spark Tables csv listing was written to in the previous step.  This activity will read that csv and execute a ForEach activity for each delta table listed.
 ![picture alt](/img/6.png)
 
 On the settings tab of the ForEach activity, you will notice Sequential is checked.  This means the pipeline will take longer as only one notebook at a time will run be a lower executor size is needed.  If this is deselected, additional spark pools will be generated and there will be parallel runs which could necessitate a larger spark pool to be executed for this activity.  

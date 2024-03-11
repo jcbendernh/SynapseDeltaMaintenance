@@ -25,7 +25,7 @@ You will also need to modify the <b>account_name</b> value on line 5 of in cell 
 Next download the [Delta Table Maintenance zip file](/files/Delta%20Table%20Maintenance.zip) from this repo and import it into pipelines in your Synapse workspace.  To do so, go to Integrate and click + and choose <b>Import from pipeline template.</b>
 ![picture alt](/img/2.png)
 
-During the import process, you have to declare the Linked service, use the default workspace Linked Service…
+During the import process, you have to declare the Linked service, use the <b>WorkspaceDefaultStorage</b> account…
 ![picture alt](/img/3.png)
 
 Once imported, you should see the Pipeline, click Save/Commit.

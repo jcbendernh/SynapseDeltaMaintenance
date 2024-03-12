@@ -16,13 +16,7 @@ Make sure all your delta tables are created and show in the listing before proce
 -	Create a separate container called <b>Other</b> on your synapse storage account associated with the workspace.  See the screenshot for reference…
 ![picture alt](/img/1.png)
 
-Next we will import the pipeline and it’s corresponding notebooks.  We must import the notebooks first.  Download and import the [Delta Table Maintenance-1](/files/Delta%20Table%20Maintenance-1.ipynb) and [Delta Table Maintenance-2](/files/Delta%20Table%20Maintenance-2.ipynb) notebooks into the Synapse workspace.  Once imported, please attach them to a Spark Pool in your Synapse Workspace. 
-
-You will also need to modify the <b>account_name</b> value on line 5 of in cell 1 of the <b>Delta Table Maintenance-1</b> notebook to match the name of your synapse storage account associated with the workspace.  
-
-<b>NOTE:</b>  We recommend setting up a separate Spark Pool for automated jobs.  Thus, one spark pool for interactive workloads and another for automated jobs.
-
-Next download the [Delta Table Maintenance zip file](/files/Delta%20Table%20Maintenance.zip) from this repo and import it into pipelines in your Synapse workspace.  To do so, go to Integrate and click + and choose <b>Import from pipeline template.</b>
+Next we will import the pipeline and it’s corresponding notebooks.  Download the [Delta Table Maintenance zip file](/files/Delta%20Table%20Maintenance.zip) from this repo and import it into pipelines in your Synapse workspace.  To do so, go to Integrate and click + and choose <b>Import from pipeline template.</b>
 ![picture alt](/img/2.png)
 
 During the import process, you have to declare the Linked service, use the <b>WorkspaceDefaultStorage</b> account…
@@ -31,7 +25,25 @@ During the import process, you have to declare the Linked service, use the <b>Wo
 Once imported, you should see the Pipeline, click Save/Commit.
 ![picture alt](/img/4.png)
 
-There are a few verification steps to review and this also give you a better understanding of how the pipeline functions.
+<b>NOTE:</b> The pipeline and it corresponding notebooks will show in their sections under the <b>Delta Tables Maintenance</b> folders.
+
+There are a few configurations steps we must do to the notebooks and the pipeline to get them to function properly.
+
+<b>Notebooks</b>
+
+Open both the Delta Table Maintenance-1 and Delta Table Maintenance-2 notebooks into the Synapse workspace and do the following:
+1)	Attach them to a Spark Pool in your Synapse Workspace
+2)	Under configure session for each notebook, please select <b>Enabled</b> under <b>Run as managed identity</b>.  This is essential for notebooks that are automated via Pipelines.
+
+![picture alt](/img/9.png)
+
+Next we need to modify the <b>Delta Table Maintenance-1</b> notebook.  In cell 1 change the <b>account_name</b> value on line 5 to match the name of your synapse storage account associated with the workspace.
+
+<b>OPTIONAL:</b> You can manually run each cell in Notebook 1 to see it’s output and verify that the csv file is created successfully.
+
+<b>NOTE:</b>  We recommend setting up a separate Spark Pool for automated jobs.  Thus, one spark pool for interactive workloads and another for automated jobs.
+
+<b>Pipeline</b>
 
 For the <b>ShowTables</b> notebook activity, under Settings, verify that <b>Delta Table Maintenance-1</b> is listed and select your Spark Pool for automated jobs.
 ![picture alt](/img/5.png)

@@ -48,10 +48,12 @@ Next we need to modify the <b>Delta Table Maintenance-1</b> notebook.  In cell 1
 For the <b>ShowTables</b> notebook activity, under Settings, verify that <b>Delta Table Maintenance-1</b> is listed and select your Spark Pool for automated jobs.
 ![picture alt](/img/5.png)
 
-Under your Lookup activity, verify your wildcard file path.  This is where the spark Tables csv listing was written to in the previous step.  This activity will read that csv and execute a ForEach activity for each delta table listed.
+Under your Lookup activity, verify your wildcard file path.  This is where the spark Tables csv listing was written to in the previous step.  This activity will read that csv and execute a ForEach activity for each delta t<able listed.
 ![picture alt](/img/6.png)
 
-On the settings tab of the ForEach activity, you will notice Sequential is checked.  This means the pipeline will take longer as only one notebook at a time will run be a lower executor size is needed.  If this is deselected, additional spark pools will be generated and there will be parallel runs which could necessitate a larger spark pool to be executed for this activity.  
+<b>NOTE:</b>  If you changed the <b>container_name</b> and <b>relative_path</b> variables in cell 1 of the <b>Delta Table Maintenance-1</b> notebook, you will need to modify the <b>DeltaTableList</b> dataset.  Otherwise it will fail.
+
+On the settings tab of the <b>ForEach</b> activity, you will notice Sequential is checked.  This means the pipeline will take longer as only one notebook at a time will run be a lower executor size is needed.  If this is deselected, additional spark pools will be generated and there will be parallel runs which could necessitate a larger spark pool to be executed for this activity.  
 ![picture alt](/img/7.png)
 
 Under the <b>Delta Table OPTIMIZE AND COMMAND</b> notebook activity, click on Settings to verify that <b>Delta Table Maintenance-2</b> is listed and select your Spark Pool for automated jobs.

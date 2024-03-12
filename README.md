@@ -16,7 +16,7 @@ Make sure all your delta tables are created and show in the listing before proce
 -	Create a separate container called <b>Other</b> on your synapse storage account associated with the workspace.  See the screenshot for reference…
 ![picture alt](/img/1.png)
 
-Next we will import the pipeline and it’s corresponding notebooks.  We must import the notebooks first.  Download and import the [Delta Table Maintenance-1](/files/Delta%20Table%20Maintenance-1.ipynbiles) and [Delta Table Maintenance-2](/files/Delta%20Table%20Maintenance-2.ipynb) notebooks into the Synapse workspace.  Once imported, please attach them to a Spark Pool in your Synapse Workspace. 
+Next we will import the pipeline and it’s corresponding notebooks.  We must import the notebooks first.  Download and import the [Delta Table Maintenance-1](/files/Delta%20Table%20Maintenance-1.ipynb) and [Delta Table Maintenance-2](/files/Delta%20Table%20Maintenance-2.ipynb) notebooks into the Synapse workspace.  Once imported, please attach them to a Spark Pool in your Synapse Workspace. 
 
 You will also need to modify the <b>account_name</b> value on line 5 of in cell 1 of the <b>Delta Table Maintenance-1</b> notebook to match the name of your synapse storage account associated with the workspace.  
 
